@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: USER API
-  version: "1.0.0"
+  version: "1.0.1"
 
 paths:
   /users:
@@ -34,6 +34,9 @@ paths:
                     name:
                       type: string
                       example: Jean Dupont
+                    email:
+                      type: string
+                      example: JeanDupont@gmail.com
         400:
           content:
             application/json:
