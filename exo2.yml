@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: USER API
+  version: "1.0.0"
+
+paths:
+  /users:
+    get:
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            maximum: 100
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: Jean Dupont
+        400:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Paramètres invalides : page doit être >= 1 et size <= 100"
